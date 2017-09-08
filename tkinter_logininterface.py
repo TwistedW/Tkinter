@@ -34,6 +34,24 @@ def w_button():
     button_password.place(x=330, y=250)
     button_forgotpassword = tk.Button(window, text='Forgot password', bg='red', command=reset_password)
     button_forgotpassword.place(x=520, y=260)
+    button_chooselist = tk.Button(window, text='memory_list', bg='green', command=chooselist)
+    button_chooselist.place(x=10, y=260)
+
+def chooselist():
+    global var_list, lb
+    window_list = tk.Toplevel(window)
+    window_list.title('choose_list')
+    window_list.geometry('350x300')  # width x height
+    var_list = tk.StringVar()
+    var_list.set(('13900120', '13900121', '13900122', '13900123', '13900124', '13900125', '13900126',
+                  '13900127', '13900128'))
+    lb = tk.Listbox(window_list, listvariable=var_list)
+    lb.pack()
+    choose_button = tk.Button(window_list, text='print selection', command=print_selection)
+    choose_button.pack()
+def print_selection():
+    value = lb.get(lb.curselection())
+    var_username.set(value)
 
 def login():
     username = var_username.get()

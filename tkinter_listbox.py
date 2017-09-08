@@ -21,6 +21,7 @@ def w_listbox():
     for item in list_item:
         lb.insert('end', item)
     lb.insert(1, 'first')
+    lb.insert('end', '13900124')
     lb.pack()
 
 def w_button():

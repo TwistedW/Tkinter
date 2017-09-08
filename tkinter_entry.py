@@ -24,7 +24,7 @@ def w_button():
 
 def insert_point():
     var = e.get()
-    t.insert('insert', var)
+    t.insert('insert', var)#after the cursor is inserted
 
 def insert_end():
     var = e.get()

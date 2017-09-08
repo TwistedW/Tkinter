@@ -13,22 +13,30 @@ def w_label():
                  width=15, height=2)
     l.pack()
 
+def w_text():
+    global t
+    t = tk.Text(window, height=2, width=15, bg='green')
+    t.pack()
+
 def hit_me():
     global on_hit
     if on_hit == False:
         on_hit = True
-        var.set('you hit me')
+        var = 'you hit me'
+        t.insert('insert', var)
     else:
+        t.delete(0.0, 'end')
         on_hit = False
-        var.set('')
+        t.insert('insert', ' ')
 
 def w_button():
-    b = tk.Button(window, text='my TK Button', bg='green', font=('Arial', 12),
+    b = tk.Button(window, text='my tk button', bg='red', font=('Arial', 12),
                   width=15, height=2, command=hit_me)
     b.pack()
 
 if __name__ == '__main__':
     w_window()
+    w_text()
     w_label()
     w_button()
     window.mainloop()

@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import filedialog
 
 window = tk.Tk()
 counter = 0
@@ -22,7 +23,7 @@ def w_menubar():
     menubar.add_cascade(label='Edit', menu=editmenu)
 
     filemenu.add_command(label='New', command=do_job)
-    filemenu.add_command(label='Open', command=do_job)
+    filemenu.add_command(label='Open', command=openfile)
     filemenu.add_command(label='Setting', command=do_job)
     filemenu.add_command(label='Save', command=do_job)
 
@@ -41,6 +42,10 @@ def do_job():
     global counter
     l.config(text='doing the job '+str(counter))
     counter += 1
+
+def openfile():
+    r = filedialog.askopenfilename(title='打开文件', filetypes=[('Python', '*.py *.pyw'), ('All Files', '*')])
+    print(r)
 
 if __name__ == '__main__':
     w_window()
